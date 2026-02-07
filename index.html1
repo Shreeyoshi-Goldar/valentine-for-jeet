@@ -1,87 +1,141 @@
-# valentine-for-jeet
-For my Valentine ❤️
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Will You Be My Valentine? 💖</title>
+  <meta charset="UTF-8">
+  <title>For Jeet ❤️</title>
 
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
-            font-family: 'Segoe UI', sans-serif;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            width: 300px;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff6a88, #ff99ac);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      text-align: center;
+    }
 
-        img {
-            width: 100%;
-            border-radius: 15px;
-            margin-bottom: 15px;
-        }
+    .card {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 30px;
+      border-radius: 25px;
+      max-width: 360px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      z-index: 2;
+    }
 
-        h1 {
-            color: #ff4d6d;
-        }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
 
-        button {
-            padding: 10px 18px;
-            font-size: 16px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            margin: 10px;
-        }
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
 
-        #yes {
-            background: #ff4d6d;
-            color: white;
-        }
+    button {
+      margin: 12px;
+      padding: 12px 26px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-        #no {
-            background: #ddd;
-        }
-    </style>
+    .yes {
+      background-color: #ff1e56;
+      color: white;
+    }
+
+    .no {
+      background-color: white;
+      color: #ff1e56;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 20px;
+      margin-top: 15px;
+      display: none;
+    }
+
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="card">
-    <!-- PHOTO -->
-    <img src="https://drive.google.com/uc?export=view&id=PHOTO_FILE_ID" alt="Us 💕">
+  <!-- Bollywood romantic music -->
+  <audio autoplay loop>
+    <source src="https://pagalfree.com/musics/128-Raataan%20Lambiyan%20-%20Shershaah%20128%20Kbps.mp3" type="audio/mpeg">
+  </audio>
 
-    <h1>Will you be my Valentine? 💘</h1>
+  <div class="card" id="card">
+    <h1>Hey Jeet ❤️</h1>
 
-    <button id="yes">YES 💖</button>
-    <button id="no">NO 🙃</button>
+    <p>
+      With you, love feels easy.  
+      Safe.  
+      Real.  
+      <br><br>
+      I don’t promise perfection…  
+      but I promise **you**, every day 💕
+    </p>
 
-    <!-- MUSIC -->
-    <audio id="music" src="https://drive.google.com/uc?export=download&id=1f3t_VIbE8OzGu0oJBl9W5Pb03VZzqk-r"></audio>
-</div>
+    <h2>Will you be my Valentine? 🌹</h2>
 
-<script>
-    document.getElementById("yes").onclick = function () {
-        document.getElementById("music").play();
-        alert("Yayyy!! I love you ❤️🎶");
-    };
+    <button class="yes" onclick="yesClicked()">YES 😍</button>
+    <button class="no" onclick="alert('Nice try 😌 You already said YES in my heart 💖')">NO 🙈</button>
 
-    document.getElementById("no").onclick = function () {
-        alert("Not allowed 😤 Try again!");
-    };
-</script>
+    <!-- PHOTO REVEAL -->
+    <img id="photo" src="YOUR_PHOTO_LINK_HERE" alt="Us ❤️">
+
+    <p id="finalText" style="display:none; margin-top:15px;">
+      I choose you.  
+      Today. Tomorrow. Always. 💍❤️
+    </p>
+  </div>
+
+  <script>
+    function yesClicked() {
+      document.getElementById("photo").style.display = "block";
+      document.getElementById("finalText").style.display = "block";
+      alert("YAYYYY ❤️ I love you Jeet 😘 Happy Valentine’s Day 💕");
+    }
+
+    // Falling hearts
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 300);
+  </script>
 
 </body>
 </html>
+
+      
+
 
